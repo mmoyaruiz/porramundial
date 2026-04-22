@@ -1,4 +1,3 @@
-
 /* =====================================================
    style.css
    Estilos globales de la aplicación
@@ -98,7 +97,8 @@ main {
 /* Layout específico HOME */
 .home-layout {
     display: grid;
-    grid-template-columns: 4fr 1fr; /* hero mucho más ancho */
+    grid-template-columns: 4fr 1fr;
+    /* hero mucho más ancho */
     gap: 24px;
     align-items: start;
 }
@@ -112,7 +112,8 @@ main {
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
     border: 1px solid #e5f4ea;
     width: 100%;
-    max-width: none;   /* MUY IMPORTANTE */
+    max-width: none;
+    /* MUY IMPORTANTE */
 }
 
 .hero h1 {
@@ -167,7 +168,7 @@ main {
 
 .btn:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* =========================
@@ -365,7 +366,7 @@ footer a:hover {
 
 .card {
     background: #d1e0d7;
-    padding: 20px;  
+    padding: 20px;
     border-radius: 10px;
     border: #080808 solid 1px;
 }
@@ -442,10 +443,14 @@ table {
 /* Encabezados y celdas */
 table th,
 table td {
-    text-align: center;          /* Centrado horizontal */
-    vertical-align: middle;      /* Centrado vertical */
-    padding: 10px 12px;          /* Espaciado interno */
-    border: 1px solid #ccc;      /* Línea de separación entre celdas */
+    text-align: center;
+    /* Centrado horizontal */
+    vertical-align: middle;
+    /* Centrado vertical */
+    padding: 10px 12px;
+    /* Espaciado interno */
+    border: 1px solid #ccc;
+    /* Línea de separación entre celdas */
 }
 
 /* Encabezados con fondo diferenciado */
@@ -464,9 +469,10 @@ table input[type="number"] {
 }
 
 table img {
-  /*object-fit: cover; /* Clave: recorta la imagen para rellenar sin estirar */
-  /*display: block;    /* Elimina espacios inferiores extraños */
-  border: #080808 solid 1px; /* Opcional: borde para destacar la imagen */
+    /*object-fit: cover; /* Clave: recorta la imagen para rellenar sin estirar */
+    /*display: block;    /* Elimina espacios inferiores extraños */
+    border: #080808 solid 1px;
+    /* Opcional: borde para destacar la imagen */
 }
 
 
@@ -479,16 +485,16 @@ table img {
     background-color: #e3f6eb;
 }
 
-.partido-equipos{
+.partido-equipos {
     text-align: center;
 }
 
-.partido-marcador{
+.partido-marcador {
     text-align: center;
 }
 
-.partido-meta{
-        text-align: center;
+.partido-meta {
+    text-align: center;
 }
 
 
@@ -506,7 +512,7 @@ table img {
     background: #ffffff;
     padding: 24px 28px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .form-card h1 {
@@ -568,4 +574,16 @@ legend {
 
 .btn-primary:hover {
     background-color: #186233;
+}
+
+
+/*auth.css */
+main.auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 0 20px;
 }

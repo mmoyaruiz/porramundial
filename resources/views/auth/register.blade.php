@@ -3,11 +3,16 @@
 @section('title', 'Registrarse')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+
+    {{-- CARGA DE CSS Y JS CON VITE --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Estilos adicionales opcionales por vista --}}
+    @stack('styles')
 @endpush
 
 @section('content')
-<main>
+<main class="auth">
 
     <section class="card">
         <h1>Crear cuenta</h1>
@@ -96,9 +101,7 @@
             <a href="{{ route('login') }}">Inicia sesión</a>.
         </div>
 
-        <div class="back-home">
-            <a href="{{ route('home') }}">← Volver a inicio</a>
-        </div>
+
     </section>
 
 </main>

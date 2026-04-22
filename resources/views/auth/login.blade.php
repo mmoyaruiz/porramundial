@@ -3,11 +3,17 @@
 @section('title', 'Iniciar sesión')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/auth.css') }}">
-@endpush
+
+    {{-- CARGA DE CSS Y JS CON VITE --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Estilos adicionales opcionales por vista --}}
+    @stack('auth')
+
+    @endpush
 
 @section('content')
-<main>
+<main class=auth>
 
     <section class="card">
         <h1>Iniciar sesión</h1>
