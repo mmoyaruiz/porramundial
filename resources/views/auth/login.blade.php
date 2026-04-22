@@ -13,7 +13,7 @@
     @endpush
 
 @section('content')
-<main class=auth>
+<main class="auth">
 
     <section class="card">
         <h1>Iniciar sesión</h1>
