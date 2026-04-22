@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controll;
+namespace App\Http\Controllers;
 
 use App\Models\Participacion;
 use App\Models\Porra;
