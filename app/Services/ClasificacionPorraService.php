@@ -172,7 +172,7 @@ class ClasificacionPorraService
 
     /**
      * Aplica puntos por campeones de grupo.
-     * Regla: solo puntúa un grupo cuando el grupo está "cerrado" (todos los partidos finalizados).
+     * Regla: solo puntúa un grupo cuando el grupo está "cerrado" (todos los partidos de ese grupo están finalizados).
      */
     private function aplicarCampeonesGrupo(Porra $porra): void
     {

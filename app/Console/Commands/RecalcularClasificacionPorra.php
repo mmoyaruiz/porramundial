@@ -24,8 +24,7 @@ class RecalcularClasificacionPorra extends Command
     /**
      * Firma del comando.
      *
-     * Uso:
-     *   php artisan porras:recalcular-clasificacion {idPorra}
+     * Uso: php artisan porras:recalcular-clasificacion {idPorra}
      */
     protected $signature = 'porras:recalcular-clasificacion {idPorra}';
 

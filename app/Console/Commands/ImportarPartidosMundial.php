@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\Log;
  * - Mostrar partidos y estados actualizados.
  * - Calcular puntos y clasificaciones usando resultados reales.
  *
- * Nota:
  * - Se hace "upsert" por api_match_id (si existe se actualiza, si no se crea).
  */
 class ImportarPartidosMundial extends Command

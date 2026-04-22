@@ -80,7 +80,7 @@ class PartidoPronosticosController extends Controller
         }
 
         /*
-         * UX: mostrar primero al usuario logueado en el listado (si aparece).
+         * Se muestra primero al usuario logueado en el listado (si aparece).
          * No cambia datos, solo el orden visual.
          */
         $pronosticos = $pronosticos->sortByDesc(

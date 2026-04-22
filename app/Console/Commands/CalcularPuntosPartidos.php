@@ -15,8 +15,6 @@ use Illuminate\Console\Command;
  * Se ejecuta sobre todos los partidos con estado "finalizado" y con marcador real,
  * delegando el cálculo concreto de puntos al servicio CalculadorPuntosService.
  *
- * Este proceso está alineado con la lógica del sistema de puntuación definida
- * en el proyecto y permite actualizar los puntos de forma masiva.
  */
 class CalcularPuntosPartidos extends Command
 {

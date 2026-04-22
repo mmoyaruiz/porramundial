@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\DB;
  * - Mostrar porras públicas activas a las que el usuario NO pertenece.
  * - Mostrar porras privadas activas donde el usuario tiene una invitación pendiente.
  *
- * Nota: esta pantalla está pensada para usuarios autenticados (se obtiene el usuario desde sesión),
- * y se apoya en la tabla participaciones y en la tabla invitaciones.
  */
 class PorraDisponibleController extends Controller
 {

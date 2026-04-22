@@ -14,8 +14,6 @@ class DashboardController extends Controller
      * - Mostrar un resumen rápido del usuario: porras en las que participa,
      *   porras que administra y número de partidos pendientes de pronóstico.
      *
-     * Nota:
-     * - En este proyecto la autenticación es manual por sesión.
      */
     public function index()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controll;
 
 use App\Models\Participacion;
 use App\Models\Porra;
@@ -14,11 +14,11 @@ use App\Models\Partido;
  *
  * Se encarga de la acción de “unirse a una porra”.
  *
- * Pantallas / flujo relacionado (ERS):
+ * Pantallas / flujo relacionado:
  * - Desde la pantalla principal de una porra (8.7) el usuario puede unirse.
  * - Tras unirse, la porra debe aparecer en “Mis porras” (8.6).
  *
- * Reglas principales (coherentes con el ERS):
+ * Reglas principales:
  * - El usuario debe estar autenticado.
  * - La porra debe estar activa.
  * - No se permite que un usuario se apunte dos veces a la misma porra.
@@ -60,7 +60,6 @@ class ParticipacionController extends Controller
                 'general' => 'La competición ya ha comenzado. No es posible unirse a esta porra.'
             ]);
         }
-
 
         // 3) Evitar duplicados: si ya participa, no permitir
         $yaParticipa = Participacion::where('id_usuario', $userId)

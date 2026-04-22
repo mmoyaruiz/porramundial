@@ -22,7 +22,6 @@ use Illuminate\Http\Request;
  * - Las invitaciones se guardan con estado "pendiente".
  * - Se evita invitar a usuarios que ya participan o duplicar invitaciones pendientes.
  *
- * Nota: autenticación manual por sesión (session('usuario')).
  */
 class InvitacionController extends Controller
 {

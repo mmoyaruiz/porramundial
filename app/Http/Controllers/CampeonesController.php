@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
  * - Campeón del torneo.
  * - Campeón de cada grupo.
  *
- * Funcionalidades asociadas (ERS):
+ * Funcionalidades asociadas 
  * - Pantalla para enviar/modificar campeones (similar a pronósticos de partidos).
  * - Pantalla para consultar pronósticos de campeones del resto de participantes.
  *
