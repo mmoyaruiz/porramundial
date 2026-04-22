@@ -1,0 +1,623 @@
+
+/* =====================================================
+   style.css
+   Estilos globales de la aplicación
+   Proyecto: PORRAMUNDIAL.COM
+   Autor: Miguel Ángel Moya Ruiz
+   ===================================================== */
+
+/* Reset básico y tipografía */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f3f7f2;
+    color: #222;
+}
+
+/* Paleta base
+   Verde principal: #1f7a3d
+   Verde oscuro: #145229
+   Verde suave: #e5f4ea
+   Gris suave: #e3e6ea
+*/
+
+/* =========================
+   CABECERA Y NAVEGACIÓN
+   ========================= */
+header {
+    background: linear-gradient(90deg, #145229, #1f7a3d);
+    color: #fff;
+
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-badge {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #e5f4ea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #145229;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 18px;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #e5f4ea;
+    transition: width 0.2s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   LAYOUT PRINCIPAL HOME
+   ========================= */
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    /*
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    */
+}
+
+
+/* Layout específico HOME */
+.home-layout {
+    display: grid;
+
+    grid-template-columns: 4fr 1fr; /* hero mucho más ancho */
+    gap: 24px;
+    
+    align-items: start;
+
+}
+
+
+/* HERO */
+.hero {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 25px 28px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5f4ea;
+    
+    width: 100%;
+    max-width: none;   /* MUY IMPORTANTE */
+
+}
+
+.hero h1 {
+    margin-top: 0;
+    color: #145229;
+    font-size: 1.8rem;
+}
+
+.hero p {
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+}
+
+.hero-highlight {
+    background-color: #e5f4ea;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.hero-actions {
+    margin-top: 22px;
+}
+
+/* =========================
+   BOTONES
+   ========================= */
+.btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #1f7a3d;
+    color: #fff;
+    box-shadow: 0 3px 8px rgba(31, 122, 61, 0.3);
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: #1f7a3d;
+    border: 1px solid #1f7a3d;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   SIDEBAR
+   ========================= */
+.sidebar {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 20px 22px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5f4ea;
+    min-width: 240px;
+    max-width: 280px;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #145229;
+}
+
+.porra-item {
+    border-bottom: 1px solid #e3e6ea;
+    padding: 8px 0;
+}
+
+.porra-item:last-child {
+    border-bottom: none;
+}
+
+.porra-item strong {
+    font-size: 0.95rem;
+    color: #1f7a3d;
+}
+
+.porra-item span {
+    display: block;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.sidebar-link {
+    margin-top: 15px;
+    font-size: 0.85rem;
+}
+
+.sidebar-link a {
+    color: #1f7a3d;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.sidebar-link a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+    padding: 15px 0 25px;
+}
+
+footer a {
+    color: #1f7a3d;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+
+@media (max-width: 768px) {
+    .home-layout {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        margin-left: 10px;
+    }
+}
+
+
+
+
+/*formato tabla pronosticos*/
+
+.table {
+    width: 100%;
+    table-layout: auto;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+
+/* Fila completa */
+.fila-partido td {
+    vertical-align: middle;
+}
+
+/* Fase */
+.col-fase {
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Fecha */
+.col-fecha {
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Partido */
+.col-partido {
+    min-width: 320px;
+}
+
+/* Contenedor partido */
+.partido-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+/* Equipo (escudo + nombre) */
+.equipo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.equipo img {
+    width: auto;
+    height: 20px;
+}
+
+/* VS */
+.vs {
+    font-weight: 600;
+    color: #444;
+}
+
+/* Pronóstico */
+.col-pronostico {
+    text-align: center;
+}
+
+.col-pronostico input {
+    width: 48px;
+    text-align: center;
+}
+
+.guion {
+    margin: 0 4px;
+}
+
+
+
+.dashboard-layout {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.dashboard-header h1 {
+    color: #1f7a3f;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.card {
+    background: #d1e0d7;
+    padding: 20px;  
+    border-radius: 10px;
+    border: #080808 solid 1px;
+}
+
+.card-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1f7a3f;
+}
+
+.dashboard-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.porra-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.porra-actions a {
+    margin-right: 10px;
+    color: #1f7a3f;
+}
+
+.dashboard-right .btn-primary {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.porras-table {
+    margin-top: 15px;
+}
+
+.porras-table th {
+    background-color: #e7f4ec;
+    color: #1f7a3f;
+    font-weight: 600;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+}
+
+.badge-activa {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.badge-pendiente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.badge-cerrada {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+
+
+/* =========================
+   ESTILO GENERAL DE TABLAS
+   ========================= */
+
+/* La tabla ocupa todo el ancho y colapsa bordes */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Encabezados y celdas */
+table th,
+table td {
+    text-align: center;          /* Centrado horizontal */
+    vertical-align: middle;      /* Centrado vertical */
+    padding: 10px 12px;          /* Espaciado interno */
+    border: 1px solid #ccc;      /* Línea de separación entre celdas */
+}
+
+/* Encabezados con fondo diferenciado */
+table th {
+    background-color: #f0f6f2;
+    font-weight: 600;
+}
+
+/* Filas con efecto hover (mejora UX) */
+table tbody tr:hover {
+    background-color: #f9fbfa;
+}
+
+table input[type="number"] {
+    text-align: center;
+}
+
+table img {
+  /*object-fit: cover; /* Clave: recorta la imagen para rellenar sin estirar */
+  /*display: block;    /* Elimina espacios inferiores extraños */
+  border: #080808 solid 1px; /* Opcional: borde para destacar la imagen */
+}
+
+
+.acierto-exacto {
+    background-color: #b6e7c9;
+    font-weight: bold;
+}
+
+.acierto-signo {
+    background-color: #e3f6eb;
+}
+
+
+.partido-equipos{
+    text-align: center;
+}
+
+.partido-marcador{
+    text-align: center;
+}
+
+.partido-meta{
+        text-align: center;
+
+}
+
+
+/* ===============================
+   LAYOUT PANTALLA 8.9 (PARTIDO)
+   =============================== */
+
+
+
+   /*
+.layout-partido {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+        "header aside"
+        "tabla  aside";
+    gap: 24px;
+    align-items: start;
+}
+
+.partido-header {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: aside;
+}
+
+.partido-pronosticos {
+    grid-area: tabla;
+}
+
+
+/* ===============================
+   FORMULARIOS (CREAR PORRA)
+   =============================== */
+
+.form-layout {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-card {
+    background: #ffffff;
+    padding: 24px 28px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.form-card h1 {
+    margin-bottom: 20px;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 28px;
+    padding: 0;
+}
+
+legend {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f7a3f;
+    margin-bottom: 12px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-actions {
+    text-align: right;
+}
+
+.btn-primary {
+    background-color: #1f7a3f;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #186233;
+}
