@@ -20,6 +20,7 @@ use App\Http\Controllers\TablaPartidosController;
 use App\Http\Controllers\PorraDisponibleController;
 use App\Http\Controllers\PartidoPronosticosController;
 use App\Http\Controllers\CampeonesController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -172,3 +173,38 @@ Route::middleware(['web', 'usuario.auth'])->get(
     '/porras/{idPorra}/participantes/{idUsuario}',
     [PronosticoConsultaController::class, 'pronosticosUsuario']
 )->name('porras.participante');
+
+
+
+/**
+|--------------------------------------------------------------------------
+| SOLO PARA PRODUCCION - EJECUCION DEL COMANDO QUE DESCARGA PARTIDOS DEL MUNDIAL DE API EXTERNA
+|--------------------------------------------------------------------------
+| Creo una ruta especial que usaré solo para poder actualizar los partidos desde el panel de control
+| Esto lo hago porque mi hosting gratuito no me permite ejecutar comandos artisan desde la terminal, 
+| pero sí puedo acceder a esta ruta para ejecutar el comando que descarga los partidos del mundial desde la API externa.
+| 
+*/              
+
+
+
+use App\Http\Controllers\Admin\ImportarMundialController;
+
+Route::post(
+    '/admin/porra/{porra}/importar-mundial',
+    [ImportarMundialController::class, 'importar']
+)->name('admin.importar-mundial');
+
+
+use App\Http\Controllers\Admin\RecalcularClasificacionPorraController;
+
+Route::post(
+    '/admin/porra/{porra}/recalcular-clasificacion',
+    [RecalcularClasificacionPorraController::class, 'recalcular']
+)->name('admin.recalcular-clasificacion');
+
+
+
+
+
+

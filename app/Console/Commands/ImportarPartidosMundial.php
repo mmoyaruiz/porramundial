@@ -48,6 +48,10 @@ class ImportarPartidosMundial extends Command
      */
     public function handle(FootballDataClient $api): int
     {
+        set_time_limit(0); // Evitar timeout en importaciones largas
+        ignore_user_abort(true); // Continuar incluso si se cierra la conexión
+        
+
         // 1) Resolver id_competicion interno
         $idCompeticion = $this->resolveIdCompeticion();
 
