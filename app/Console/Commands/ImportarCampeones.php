@@ -136,7 +136,7 @@ class ImportarCampeones extends Command
             $detectedGroupPriority[$grupoLetra] = $priority;
         }
 
-        // Salida informativa (útil para comprobar qué está detectando el comando)
+        // Salida informativa 
         $this->line('Grupos detectados: ' . count($detectedGroupChampions));
         $this->line(json_encode($detectedGroupChampions));
 

@@ -90,7 +90,7 @@ class CampeonesController extends Controller
                 ->with('warning', 'La competición ha comenzado, por lo que no es posible modificar los pronósticos de campeones.');
         }
 
-        // Listas permitidas (sirven para validar)
+        // Listas permitidas para validación
         $equiposCompeticion = $this->equiposDeCompeticion($porra->id_competicion);
         $equiposPorGrupo    = $this->equiposPorGrupo($porra->id_competicion);
 

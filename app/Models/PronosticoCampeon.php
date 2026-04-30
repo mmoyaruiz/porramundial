@@ -4,6 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Modelo PronosticoCampeon
+ *
+ * Guarda los datos de los pronósticos de campeón de grupo y de competición realizados por los usuarios en una porra.
+ */
+
 class PronosticoCampeon extends Model
 {
     protected $table = 'pronosticos_campeones';

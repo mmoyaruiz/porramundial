@@ -35,9 +35,8 @@ class RecalcularClasificacionPorraController extends Controller
             abort(403, 'No tienes permisos para recalcular la clasificación de esta porra.');
         }
 
-        // 3) Ejecutar comando de recálculo (sin calcular-puntos, porque es redundante según tú)
-        // OJO: como no puedo asegurar el nombre exacto del argumento en tu signature,
-        // hago 3 intentos típicos: id, porra, idPorra.
+        // 3) Ejecutar comando de recálculo 
+
         [$exitRecalc, $outputRecalc] = $this->callRecalcularClasificacion($porraModel->id_porra);
 
         Log::info('BOTÓN 2 -> Recalcular clasificación', [
@@ -47,34 +46,22 @@ class RecalcularClasificacionPorraController extends Controller
             'output' => $outputRecalc,
         ]);
 
-        // 4) Mensaje para UI (A)
         $ok = ($exitRecalc === 0);
 
         return redirect()->back()->with([
             'status_ok' => $ok,
             'status_msg' => $ok
-                ? '✅ Clasificación recalculada correctamente.'
-                : '❌ Error al recalcular la clasificación.',
+                ? 'Clasificación recalculada correctamente.'
+                : 'Error al recalcular la clasificación.',
             'recalc_output' => $outputRecalc,
         ]);
     }
 
     /**
-     * Intenta ejecutar porras:recalcular-clasificacion con distintas claves
-     * por si el signature usa {id} o {porra} o {idPorra}.
+     * Ejecuta porras:recalcular-clasificacion y devuelve el código de salida y la salida del comando.
      */
     private function callRecalcularClasificacion(int $idPorra): array
     {
-        // intento 1: {id}
-        //$exit = Artisan::call('porras:recalcular-clasificacion', ['id' => $idPorra]);
-        //$out  = trim(Artisan::output());
-        //if ($exit === 0) return [$exit, $out];
-
-        // intento 2: {porra}
-        //$exit = Artisan::call('porras:recalcular-clasificacion', ['porra' => $idPorra]);
-        //$out  = trim(Artisan::output());
-        //if ($exit === 0) return [$exit, $out];
-
         // intento 3: {idPorra}
         $exit = Artisan::call('porras:recalcular-clasificacion', ['idPorra' => $idPorra]);
         $out  = trim(Artisan::output());

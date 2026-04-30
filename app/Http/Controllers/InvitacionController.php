@@ -11,13 +11,13 @@ use Illuminate\Http\Request;
 /**
  * Controlador InvitacionController
  *
- * Pantalla 8.15 – Invitar participantes a una porra.
+ * Invitar participantes a una porra.
  *
  * Permite invitar:
  * - Por nombre de usuario.
  * - Por correo electrónico.
  *
- * Reglas principales (según el planteamiento del proyecto):
+ * Reglas principales
  * - Solo puede invitar el administrador de la porra (participaciones.es_admin = 1).
  * - Las invitaciones se guardan con estado "pendiente".
  * - Se evita invitar a usuarios que ya participan o duplicar invitaciones pendientes.
@@ -26,7 +26,7 @@ use Illuminate\Http\Request;
 class InvitacionController extends Controller
 {
     /**
-     * Muestra la pantalla 8.15 con la información de la porra y el listado de invitaciones.
+     * Muestra la información de la porra y el listado de invitaciones.
      */
     public function create($id)
     {

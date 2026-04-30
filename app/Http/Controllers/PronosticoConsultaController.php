@@ -12,9 +12,9 @@ use App\Models\Partido;
  *
  * Gestiona la consulta de pronósticos ya enviados.
  *
- * Pantallas asociadas (ERS):
- * - 8.10: Ver MIS pronósticos en una porra.
- * - 8.11: Ver los pronósticos de OTRO participante.
+ * Pantallas asociadas:
+ * - Ver MIS pronósticos en una porra.
+ * - Ver los pronósticos de OTRO participante.
  *
  * Regla general:
  * - El usuario debe estar autenticado (sesión).
@@ -23,7 +23,7 @@ use App\Models\Partido;
 class PronosticoConsultaController extends Controller
 {
     /**
-     * 8.10 – Ver mis pronósticos en una porra
+     * Ver mis pronósticos en una porra
      *
      * Muestra todos los partidos de la competición y los pronósticos
      * enviados por el usuario logueado, independientemente del estado del partido.
@@ -65,7 +65,7 @@ class PronosticoConsultaController extends Controller
     }
 
     /**
-     * 8.11 – Ver pronósticos de otro participante
+     * Ver pronósticos de otro participante
      *
      * Permite consultar los pronósticos de otro usuario de la porra,
      * pero únicamente para partidos que ya estén en juego o finalizados.

@@ -4,9 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Modelo Invitacion
+ *
+ * Guarda los datos de las invitaciones enviadas a usuarios para unirse a una porra.
+ */
+
+
 class Invitacion extends Model
 {
-    // Esquema basado en la tabla `invitaciones` del script de BD. 
 
     protected $table = 'invitaciones';
     protected $primaryKey = 'id_invitacion';

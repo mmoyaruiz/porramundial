@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 /**
  * Controlador PronosticoController
  *
- * Pantalla 8.8 – Enviar / modificar pronósticos de partidos.
+ * Enviar / modificar pronósticos de partidos.
  *
  * Idea general:
  * - El usuario debe estar autenticado y participar en la porra.
@@ -21,7 +21,7 @@ use Illuminate\Http\Request;
 class PronosticoController extends Controller
 {
     /**
-     * Muestra la pantalla 8.8 con los partidos futuros de la competición asociada a la porra.
+     * Muestra la pantalla con los partidos futuros de la competición asociada a la porra.
      * También carga los pronósticos ya existentes del usuario para rellenar el formulario.
      */
     public function index(int $idPorra)

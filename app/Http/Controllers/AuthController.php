@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\Hash;
  * - Registro de usuarios.
  * - Cierre de sesión.
  *
- * La aplicación utiliza autenticación manual mediante sesión,
- * no el sistema Auth completo de Laravel.
+ * La aplicación utiliza autenticación manual mediante sesión
  *
  * Pantallas relacionadas (ERS):
  * - Login

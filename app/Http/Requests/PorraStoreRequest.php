@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * Valida la creación de porras (CU9).
+ * Valida la creación de porras.
  */
 class PorraStoreRequest extends FormRequest
 {

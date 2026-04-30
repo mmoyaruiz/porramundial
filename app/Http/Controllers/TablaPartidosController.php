@@ -10,7 +10,7 @@ use App\Models\Pronostico;
 /**
  * Controlador TablaPartidosController
  *
- * Pantalla 8.12 – Tabla con últimos partidos (en juego o finalizados) y pronósticos por participante.
+ * Tabla con últimos partidos (en juego o finalizados) y pronósticos por participante.
  *
  * La idea de esta pantalla es mostrar una “matriz”:
  * - Columnas: hasta 10 partidos más recientes (en juego o finalizados).
@@ -20,7 +20,7 @@ use App\Models\Pronostico;
 class TablaPartidosController extends Controller
 {
     /**
-     * Muestra la pantalla 8.12 para una porra concreta.
+     * Muestra la pantalla para una porra concreta.
      *
      * @param int $idPorra
      * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse

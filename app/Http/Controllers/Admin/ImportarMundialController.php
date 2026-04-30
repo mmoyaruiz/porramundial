@@ -63,10 +63,10 @@ class ImportarMundialController extends Controller
             'output_campeones' => $outputCampeones,
         ]);
 
-        // 6) Feedback visual (A)
+        // 6) Feedback visual
         $ok = ($exitPartidos === 0 && $exitCampeones === 0);
 
-        // Mostramos un mensaje y detalles; luego tú los pintas en Blade.
+        // Mostramos un mensaje y detalles de la importación (número de partidos procesados, campeones actualizados, etc.)
         return redirect()->back()->with([
             'status_ok' => $ok,
             'status_msg' => $ok

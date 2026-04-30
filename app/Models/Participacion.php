@@ -3,6 +3,11 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Modelo Participacion
+ *
+ * Guarda los datos de la participación de un usuario en una porra.
+ */
 
 class Participacion extends Model
 {

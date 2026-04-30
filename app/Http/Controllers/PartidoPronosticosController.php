@@ -9,7 +9,7 @@ use App\Models\Pronostico;
 /**
  * Controlador PartidoPronosticosController
  *
- * Pantalla 8.9 – Detalle de un partido dentro de una porra.
+ * Detalle de un partido dentro de una porra.
  *
  * Comportamiento principal:
  * - Si el partido está PROGRAMADO: solo se muestra el pronóstico del usuario logueado.
@@ -20,7 +20,7 @@ use App\Models\Pronostico;
 class PartidoPronosticosController extends Controller
 {
     /**
-     * Muestra el detalle de partido (8.9) para una porra concreta.
+     * Muestra el detalle de partido  para una porra concreta.
      *
      * @param int $idPorra
      * @param int $idPartido

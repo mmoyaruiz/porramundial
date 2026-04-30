@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\DB;
  * Controlador PorraController
  *
  * Este controlador se encarga de la gestión principal de las porras:
- * - Listar las porras en las que participa un usuario (pantalla 8.6).
- * - Listar las porras que administra el usuario (pantalla 8.14).
- * - Crear nuevas porras (pantalla 8.13).
- * - Mostrar la página principal de una porra concreta (pantalla 8.7).
+ * - Listar las porras en las que participa un usuario.
+ * - Listar las porras que administra el usuario.
+ * - Crear nuevas porras.
+ * - Mostrar la página principal de una porra concreta.
  */
 class PorraController extends Controller
 {
     /**
-     * 8.6 – Mis porras
+     * Mis porras
      *
      * Muestra todas las porras en las que participa el usuario autenticado.
      * Para cada porra se calculan datos adicionales que se muestran en la vista:
@@ -91,7 +91,7 @@ class PorraController extends Controller
     }
 
     /**
-     * 8.14 – Porras que administro
+     * Porras que administro
      *
      * Muestra únicamente las porras en las que el usuario es administrador.
      * El rol de administrador se gestiona a nivel de participación en la porra.
@@ -115,7 +115,7 @@ class PorraController extends Controller
     }
 
     /**
-     * 8.13 – Crear porra
+     * Crear porra
      *
      * Muestra el formulario para crear una nueva porra.
      * Es necesario que existan competiciones registradas en el sistema.
@@ -174,7 +174,7 @@ class PorraController extends Controller
     }
 
     /**
-     * 8.7 – Pantalla principal de una porra
+     * Pantalla principal de una porra
      *
      * Muestra la información general de la porra:
      * - Clasificación actual.

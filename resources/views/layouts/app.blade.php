@@ -20,8 +20,6 @@
 
         <nav>
 
-
-
             @if(session()->has('usuario'))
             <span><strong>Bienvenido {{ session('usuario')->nombre_usuario }}</strong></span>
             <a href="{{ route('dashboard') }}">Panel de Control</a>
@@ -37,10 +35,6 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-
-
-
-
 
         </nav>
     </header>

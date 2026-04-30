@@ -5,8 +5,6 @@
 @section('content')
 <main class="home-layout">
 
-
-
     <section class="hero">
 
         {{-- Mensaje de éxito --}}
@@ -58,37 +56,33 @@
         </div>
         @endif
 
-
-
-        
         {{-- Se muestra un mensaje de respuesta tras actualizar partidos y clasificación desde la API.--}}
-        
-        @if(session()->has('status_msg'))
-            @if(session('status_ok'))
-                <div class="alert alert-success">
-                <strong>{{ session('status_msg') }}</strong>
-                @if(session('import_output'))
-                <div class="alert-details">{{ session('import_output') }}</div>
-                @endif
-                @if(session('recalc_output'))
-                <div class="alert-details">{{ session('recalc_output') }}</div>
-                @endif
-                
-            </div>
-            @else
-            <div class="alert alert-error">
-                <strong>{{ session('status_msg') }}</strong>
-                @if(session('import_output'))
-                <div class="alert-details">{{ session('import_output') }}</div>
-                @endif
-                @if(session('recalc_output'))
-                <div class="alert-details">{{ session('recalc_output') }}</div>
-                @endif
-                
-            </div>
-            @endif
-        @endif
 
+        @if(session()->has('status_msg'))
+        @if(session('status_ok'))
+        <div class="alert alert-success">
+            <strong>{{ session('status_msg') }}</strong>
+            @if(session('import_output'))
+            <div class="alert-details">{{ session('import_output') }}</div>
+            @endif
+            @if(session('recalc_output'))
+            <div class="alert-details">{{ session('recalc_output') }}</div>
+            @endif
+
+        </div>
+        @else
+        <div class="alert alert-error">
+            <strong>{{ session('status_msg') }}</strong>
+            @if(session('import_output'))
+            <div class="alert-details">{{ session('import_output') }}</div>
+            @endif
+            @if(session('recalc_output'))
+            <div class="alert-details">{{ session('recalc_output') }}</div>
+            @endif
+
+        </div>
+        @endif
+        @endif
 
         <hr>
 
@@ -333,25 +327,18 @@
 
         <hr>
 
+        @php
+        // Ajusta según tu sesión real
+        $usuario = session('usuario');
+        $idUsuario = $usuario['id_usuario'] ?? session('id_usuario');
 
+        // Ajusta este campo según tu modelo Porra real:
+        $idAdminPorra = $porra->id_usuario_creador ?? $porra->id_usuario_admin ?? $porra->id_usuario;
 
-@php
-    // Ajusta según tu sesión real
-    $usuario = session('usuario');
-    $idUsuario = $usuario['id_usuario'] ?? session('id_usuario');
-
-    // Ajusta este campo según tu modelo Porra real:
-    $idAdminPorra = $porra->id_usuario_creador ?? $porra->id_usuario_admin ?? $porra->id_usuario;
-
-    $esAdmin = $idUsuario && ((int)$idUsuario === (int)$idAdminPorra);
-@endphp
-
-
-
-
+        $esAdmin = $idUsuario && ((int)$idUsuario === (int)$idAdminPorra);
+        @endphp
 
         @if($esAdmin)
-        
 
         <form method="POST" action="{{ route('admin.importar-mundial', ['porra' => $porra->id_porra]) }}">
             @csrf

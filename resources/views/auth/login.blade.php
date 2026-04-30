@@ -22,9 +22,6 @@
             Accede a tu cuenta para gestionar tus porras y pronósticos.
         </p>
 
-
-
-
         @if (session('success'))
         <div class="alert-success">{{ session('success') }}</div>
         @endif
@@ -39,10 +36,6 @@
             </ul>
         </div>
         @endif
-
-
-        
-
 
         <form action="{{ route('login') }}" method="POST">
             @csrf

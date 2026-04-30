@@ -8,7 +8,7 @@ use App\Models\Porra;
 class DashboardController extends Controller
 {
     /**
-     * Pantalla 8.5 – Panel de control del usuario
+     * Panel de control del usuario
      *
      * Objetivo:
      * - Mostrar un resumen rápido del usuario: porras en las que participa,

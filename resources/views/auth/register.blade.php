@@ -101,7 +101,6 @@
             <a href="{{ route('login') }}">Inicia sesión</a>.
         </div>
 
-
     </section>
 
 </main>

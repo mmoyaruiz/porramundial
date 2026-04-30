@@ -4,6 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Modelo Partido
+ *
+ * Guarda los datos de los partidos de la competición, incluyendo equipos, resultados y estado.
+ */
+
 class Partido extends Model
 {
     protected $table = 'partidos';

@@ -15,8 +15,8 @@ use App\Models\Partido;
  * Se encarga de la acción de “unirse a una porra”.
  *
  * Pantallas / flujo relacionado:
- * - Desde la pantalla principal de una porra (8.7) el usuario puede unirse.
- * - Tras unirse, la porra debe aparecer en “Mis porras” (8.6).
+ * - Desde la pantalla principal de una porra el usuario puede unirse.
+ * - Tras unirse, la porra debe aparecer en “Mis porras” 
  *
  * Reglas principales:
  * - El usuario debe estar autenticado.
@@ -29,7 +29,7 @@ use App\Models\Partido;
 class ParticipacionController extends Controller
 {
     /**
-     * Unirse a una porra (CU5).
+     * Unirse a una porra .
      *
      * @param Request $request
      * @param int $id  Id de la porra
@@ -52,7 +52,6 @@ class ParticipacionController extends Controller
                 'general' => 'La porra no está activa o no admite nuevas inscripciones.',
             ]);
         }
-
 
         // 2) La competición no debe haber comenzado 
         if (Partido::competicionHaComenzado($porra->id_competicion)) {
@@ -120,7 +119,7 @@ class ParticipacionController extends Controller
             }
         });
 
-        // 7) Tras unirse, redirigimos a “Mis porras” (8.6)
+        // 7) Tras unirse, redirigimos a “Mis porras” 
         return redirect()
             ->route('porras.mis')
             ->with('success', 'Te has unido a la porra correctamente.');

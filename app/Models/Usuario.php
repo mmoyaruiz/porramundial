@@ -2,16 +2,13 @@
 
 namespace App\Models;
 
-
-
-
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-
 use App\Models\Porra;
 use App\Models\Participacion;
 use App\Models\Partido;
 use App\Models\Pronostico;
+
+//use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * Modelo Usuario
@@ -20,9 +17,8 @@ use App\Models\Pronostico;
  * Se extiende de Authenticatable para poder usar
  * el sistema de autenticación de Laravel SIN Breeze ni Node.
  *
- * Proyecto: PORRAMUNDIAL.COM
  */
-class Usuario extends Authenticatable
+class Usuario extends Model
 {
     /**
      * Nombre real de la tabla en la base de datos
@@ -68,14 +64,10 @@ class Usuario extends Authenticatable
         return $this->password_hash;
     }
 
-
-
-
     /**
      * Devuelve las porras en las que el usuario participa.
-     * Se usa en el panel principal (pantalla 8.5).
+     * Se usa en el panel principal.
      */
-
     public function porrasParticipa()
     {
 
@@ -85,12 +77,9 @@ class Usuario extends Authenticatable
             ->orderByDesc('porras.fecha_creacion');
     }
 
-
-/**
+    /**
      * Devuelve las porras que el usuario administra.
      */
-
-
 
     public function porrasAdministra()
     {
@@ -101,18 +90,15 @@ class Usuario extends Authenticatable
             ->orderByDesc('porras.fecha_creacion');
     }
 
-    
-/**
+    /**
      * Cuenta los partidos futuros para los que el usuario
      * aún NO ha enviado pronóstico.
-     *
-     * Requisito del panel de control (8.5 – ERS).
      */
 
     public function partidosPendientesPronostico(): int
     {
-        
-// 1. Porras en las que participa
+
+        // 1. Porras en las que participa
         $idsPorras = Participacion::where('id_usuario', $this->id_usuario)
             ->pluck('id_porra');
 
@@ -144,6 +130,5 @@ class Usuario extends Authenticatable
 
         // 5. Diferencia = pendientes
         return $partidosFuturos->diff($pronosticados)->count();
-
     }
 }

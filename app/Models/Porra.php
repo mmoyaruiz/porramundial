@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Modelo Porra
  *
- * Tabla: porras
- * PK: id_porra
- * No usamos timestamps de Laravel (la tabla ya tiene fecha_creacion).
+ * Guarda los datos de las porras creadas por los usuarios, incluyendo su configuración y estado.
  */
 class Porra extends Model
 {

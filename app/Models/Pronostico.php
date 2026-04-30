@@ -4,6 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/****
+ * Modelo Pronostico
+ *
+ * Guarda los datos de los pronósticos realizados por los usuarios para cada partido en una porra.
+ */
+
 class Pronostico extends Model
 {
     protected $table = 'pronosticos';

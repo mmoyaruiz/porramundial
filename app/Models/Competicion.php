@@ -4,6 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Modelo Competicion
+ *
+ * Guarda los datos generales de una competicion determinada, como su nombre, fechas y tipo de torneo.
+ */
 class Competicion extends Model
 {
     protected $table = 'competiciones';
