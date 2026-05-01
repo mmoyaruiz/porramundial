@@ -9,10 +9,9 @@ class DashboardController extends Controller
 {
     /**
      * Panel de control del usuario
-     *
-     * Objetivo:
-     * - Mostrar un resumen rápido del usuario: porras en las que participa,
-     *   porras que administra y número de partidos pendientes de pronóstico.
+     * 
+     * Mostrar un resumen rápido del usuario: porras en las que participa,
+     * porras que administra y número de partidos pendientes de pronóstico.
      *
      */
     public function index()

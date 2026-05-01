@@ -98,11 +98,24 @@ class PorraController extends Controller
      */
     public function administro()
     {
+
+
         $usuario = session('usuario');
         if (!$usuario) {
             return redirect()->route('login');
         }
 
+        // Si el usuario es superadmin, mostrar todas las porras
+        if ($this->isSuperAdmin($usuario)) {
+            $porras = Porra::select('porras.*')
+                ->orderByDesc('porras.fecha_creacion')
+                ->get();
+
+            return view('porras.admin', compact('porras'));
+        }
+
+
+        // Obtener las porras en las que el usuario es administrador (es_admin = 1)
         $porras = Porra::select('porras.*')
             ->join('participaciones', 'participaciones.id_porra', '=', 'porras.id_porra')
             ->where('participaciones.id_usuario', $usuario->id_usuario)
@@ -181,17 +194,19 @@ class PorraController extends Controller
      * - Próximos partidos de la competición.
      * - Estado de los pronósticos del usuario.
      */
+
     public function show($id)
     {
+        //Usuario autenticado por sesión
         $usuario = session('usuario');
         if (!$usuario) {
             return redirect()->route('login');
         }
 
-        // Cargar la porra y su competición
+        //Cargar la porra y relaciones necesarias
         $porra = Porra::with(['competicion', 'creador'])->findOrFail($id);
 
-        // Clasificación de la porra ordenada por puntos
+        //Clasificación de la porra ordenada por puntos
         $clasificacion = Participacion::where('participaciones.id_porra', $porra->id_porra)
             ->join('usuarios', 'usuarios.id_usuario', '=', 'participaciones.id_usuario')
             ->orderByDesc('participaciones.puntos')
@@ -203,24 +218,98 @@ class PorraController extends Controller
             )
             ->get();
 
-        // Próximos partidos de la competición
+        //Próximos partidos de la competición
         $proximosPartidos = Partido::where('id_competicion', $porra->id_competicion)
             ->where('fecha_hora', '>', now())
             ->orderBy('fecha_hora')
             ->limit(20)
             ->get();
 
-        // Pronósticos del usuario para esta porra
+        //Pronósticos del usuario para esta porra
         $misPronosticos = Pronostico::where('id_usuario', $usuario->id_usuario)
             ->where('id_porra', $porra->id_porra)
             ->get()
             ->keyBy('id_partido');
 
+        // =====================================================
+        // LÓGICA DE PERMISOS
+        // =====================================================
+
+        // ¿Es superusuario global?
+        $esSuperAdmin = $this->isSuperAdmin($usuario);
+
+        // ¿Es administrador de esta porra?
+        $esAdmin = $this->isAdminDePorra($usuario, (int) $porra->id_porra);
+
+        // El superadmin SIEMPRE se considera admin de cualquier porra
+        if ($esSuperAdmin) {
+            $esAdmin = true;
+        }
+
+        // Enviar datos a la vista
         return view('porras.show', compact(
             'porra',
             'clasificacion',
             'proximosPartidos',
-            'misPronosticos'
+            'misPronosticos',
+            'esAdmin'
         ));
+    }
+
+    /**
+     * Eliminar porra
+     *
+     * Elimina una porra y TODA la información asociada a ella:
+     * - Pronósticos
+     * - Participaciones
+     *
+     * Esta acción es irreversible y solo puede realizarla el administrador (creador) de la porra o el superadmin.
+     */
+    public function destroy($id)
+    {
+        // Usuario autenticado por sesión
+        $usuario = session('usuario');
+        if (!$usuario) {
+            return redirect()->route('login');
+        }
+
+        // Obtener la porra
+        $porra = Porra::findOrFail($id);
+
+        // Seguridad: solo el creador o el superadmin pueden eliminar la porra
+        if ($porra->id_usuario_creador !== $usuario->id_usuario && !$this->isSuperAdmin($usuario)) {
+            abort(403, 'No tienes permisos para eliminar esta porra.');
+        }
+
+        // Borrado en transacción (todo o nada)
+        DB::transaction(function () use ($porra) {
+
+
+            // 1) Eliminar invitaciones (porras privadas)
+            DB::table('invitaciones')
+                ->where('id_porra', $porra->id_porra)
+                ->delete();
+
+
+            // 2️) Pronósticos de campeones (ganador torneo / grupo)
+            DB::table('pronosticos_campeones')
+                ->where('id_porra', $porra->id_porra)
+                ->delete();
+
+
+            // 3) Eliminar pronósticos de la porra
+            Pronostico::where('id_porra', $porra->id_porra)->delete();
+
+            // 4) Eliminar participaciones en la porra
+            Participacion::where('id_porra', $porra->id_porra)->delete();
+
+            // 5) Eliminar la porra
+            $porra->delete();
+        });
+
+        // Redirigir al panel de control del administrador
+        return redirect()
+            ->route('porras.admin')
+            ->with('success', 'La porra se ha eliminado correctamente.');
     }
 }

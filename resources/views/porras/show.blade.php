@@ -327,24 +327,13 @@
 
         <hr>
 
-        @php
-        // Ajusta según tu sesión real
-        $usuario = session('usuario');
-        $idUsuario = $usuario['id_usuario'] ?? session('id_usuario');
-
-        // Ajusta este campo según tu modelo Porra real:
-        $idAdminPorra = $porra->id_usuario_creador ?? $porra->id_usuario_admin ?? $porra->id_usuario;
-
-        $esAdmin = $idUsuario && ((int)$idUsuario === (int)$idAdminPorra);
-        @endphp
-
         @if($esAdmin)
 
         <form method="POST" action="{{ route('admin.importar-mundial', ['porra' => $porra->id_porra]) }}">
             @csrf
             <button
                 type="submit"
-                class="btn-descargar-mundial"
+                class="btn-admin"
                 onclick="return confirm('¿Actualizar partidos del Mundial desde la API?')">
                 DESCARGAR PARTIDOS MUNDIAL DE LA API
             </button>
@@ -356,9 +345,23 @@
             @csrf
             <button
                 type="submit"
-                class="btn-recalcular-clasificacion"
+                class="btn-admin"
                 onclick="return confirm('¿Recalcular clasificación de la porra?')">
                 RECALCULAR CLASIFICACIÓN
+            </button>
+        </form>
+        <hr>
+
+
+        <form method="POST" action="{{ route('porras.destroy', ['id' => $porra->id_porra]) }}">
+            @csrf
+            @method('DELETE')
+
+            <button
+                type="submit"
+                class="btn-admin danger"
+                onclick="return confirm('ATENCIÓN: esta acción eliminará la porra y TODOS los pronósticos asociados.\n\nEsta operación es IRREVERSIBLE.\n\n¿Deseas continuar?')">
+                ELIMINAR PORRA
             </button>
         </form>
 

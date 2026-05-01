@@ -31,7 +31,8 @@
             </div>
 
             <div class="form-group">
-                <label for="id_competicion">Competición</label>
+                <label for="id_competicion">Competición*<br>
+                *<small><i>De momento, solo se puede seleccionar el Mundial de selecciones. En actualizaciones futuras se incorporarán nuevas competiciones</i></small></label>
                 <select id="id_competicion" name="id_competicion" required>
                     <option value="">-- Selecciona --</option>
                     @foreach($competiciones as $c)

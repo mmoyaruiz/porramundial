@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
  *
  * Enviar / modificar pronósticos de partidos.
  *
- * Idea general:
  * - El usuario debe estar autenticado y participar en la porra.
  * - Solo se permite enviar/actualizar pronósticos mientras el partido esté programado.
  * - Los pronósticos se guardan con updateOrCreate para no duplicar registros.

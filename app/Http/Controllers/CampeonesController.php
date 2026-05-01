@@ -137,14 +137,14 @@ class CampeonesController extends Controller
                 ]
             );
         } else {
-            // Si se deja vacío, se elimina el registro (opcional)
+            // Si se deja vacío, se elimina el registro 
             PronosticoCampeon::where('id_usuario', $usuario->id_usuario)
                 ->where('id_porra', $porra->id_porra)
                 ->where('tipo_pronostico', 'competicion')
                 ->delete();
         }
 
-        // 4) Guardar campeones de grupo (tipo=grupo)
+        // 4) Guardar campeones de grupo 
         foreach ($equiposPorGrupo as $grupo => $_) {
             $equipo = $campeonesGrupo[$grupo] ?? null;
 
@@ -162,7 +162,7 @@ class CampeonesController extends Controller
                     ]
                 );
             } else {
-                // Si se deja vacío, se elimina el registro (opcional)
+                // Si se deja vacío, se elimina el registro 
                 PronosticoCampeon::where('id_usuario', $usuario->id_usuario)
                     ->where('id_porra', $porra->id_porra)
                     ->where('tipo_pronostico', 'grupo')

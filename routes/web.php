@@ -20,7 +20,9 @@ use App\Http\Controllers\TablaPartidosController;
 use App\Http\Controllers\PorraDisponibleController;
 use App\Http\Controllers\PartidoPronosticosController;
 use App\Http\Controllers\CampeonesController;
-//use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Admin\ImportarMundialController;
+use App\Http\Controllers\Admin\RecalcularClasificacionPorraController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +95,10 @@ Route::middleware(['web', 'usuario.auth'])->group(function () {
 
     Route::post('/porras/{id}/unirse', [ParticipacionController::class, 'unirse'])
         ->name('porras.unirse');
+
+    //Nueva ruta añadida. Permite al administrador de la porra eliminarla completamente
+    Route::delete('/porras/{id}', [PorraController::class, 'destroy'])
+        ->name('porras.destroy');
 
 
     /*
@@ -186,7 +192,6 @@ Route::middleware(['web', 'usuario.auth'])->get(
  * ni me permite programar tareas cron, así que esta es la única forma de ejecutar estas tareas de mantenimiento.
  */
 
-use App\Http\Controllers\Admin\ImportarMundialController;
 
 Route::post(
     '/admin/porra/{porra}/importar-mundial',
@@ -194,7 +199,6 @@ Route::post(
 )->name('admin.importar-mundial');
 
 
-use App\Http\Controllers\Admin\RecalcularClasificacionPorraController;
 
 Route::post(
     '/admin/porra/{porra}/recalcular-clasificacion',

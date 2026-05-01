@@ -8,6 +8,7 @@ use App\Models\Usuario;
 use App\Models\Invitacion;
 use Illuminate\Http\Request;
 
+
 /**
  * Controlador InvitacionController
  *

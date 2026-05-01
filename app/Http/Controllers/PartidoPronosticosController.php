@@ -19,13 +19,7 @@ use App\Models\Pronostico;
  */
 class PartidoPronosticosController extends Controller
 {
-    /**
-     * Muestra el detalle de partido  para una porra concreta.
-     *
-     * @param int $idPorra
-     * @param int $idPartido
-     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
-     */
+    
     public function show($idPorra, $idPartido)
     {
         // Autenticación manual por sesión

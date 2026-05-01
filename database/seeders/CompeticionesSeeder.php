@@ -16,7 +16,11 @@ class CompeticionesSeeder extends Seeder
                 'fecha_inicio' => '2026-06-01',
                 'fecha_fin' => '2026-07-15',
                 'tipo_torneo' => 'Mundial',
-            ],
+            ]
+
+            // Estas competiciones están previstas para futuras actualizaciones, pero no se usan en el proyecto
+            /*
+
             [
                 'id_competicion' => 2,
                 'nombre' => 'LaLiga 1ª División 2025/26 (NO FUNCIONA)',
@@ -45,6 +49,7 @@ class CompeticionesSeeder extends Seeder
                 'fecha_fin' => '2028-07-15',
                 'tipo_torneo' => 'Mundial',
             ],
+            */
         ]);
     }
 }

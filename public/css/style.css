@@ -588,3 +588,56 @@ legend {
     width: auto;   /* mantiene proporción */
     display: block;
 }
+
+
+
+/* Botones de acciones de administrador */
+.btn-admin {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px 16px;
+
+    background-color: #2c3e50;      /* azul oscuro profesional */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover: efecto visual claro */
+.btn-admin:hover {
+    background-color: #1a252f;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Click */
+.btn-admin:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón deshabilitado */
+.btn-admin:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Variante peligrosa (eliminar porra) */
+.btn-admin.danger {
+    background-color: #c0392b;
+}
+
+.btn-admin.danger:hover {
+    background-color: #992d22;
+}

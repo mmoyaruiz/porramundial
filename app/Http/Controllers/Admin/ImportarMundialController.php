@@ -28,13 +28,15 @@ class ImportarMundialController extends Controller
         // 2) Cargar porra y comprobar admin
         $porraModel = Porra::where('id_porra', $porra)->firstOrFail();
 
-        // Ajusta el campo real si lo tienes claro (creador/admin)
-        $idAdminPorra = $porraModel->id_usuario_creador
-            ?? $porraModel->id_usuario_admin
-            ?? $porraModel->id_usuario;
+        $idAdminPorra = $porraModel->id_usuario_creador;
 
-        if ((int)$idUsuario !== (int)$idAdminPorra) {
-            abort(403, 'No tienes permisos para actualizar esta porra.');
+        // Si el usuario NO es superadmin, solo puede importar si es admin de esta porra
+        if (!$this->isSuperAdmin($usuario)) {
+            if ((int)$idUsuario !== (int)$idAdminPorra) {
+                print_r("el usuaario es " . $idUsuario);
+                print_r("el admin de la porra es " . $idAdminPorra);
+                abort(403, 'No tienes permisos para actualizar esta porra.');
+            }
         }
 
         // 3) Ejecutar importación de PARTIDOS (marcadores)
@@ -55,7 +57,7 @@ class ImportarMundialController extends Controller
         $exitCampeones = Artisan::call('pm:importar-campeones');
         $outputCampeones = trim(Artisan::output());
 
-        // 5) Logs finales (útil para depurar y para evidencias de pruebas)
+        // 5) Logs finales con resultados de ambas importaciones
         Log::info('Resultado BOTÓN 1 (API)', [
             'exit_partidos' => $exitPartidos,
             'output_partidos' => $outputPartidos,
@@ -63,7 +65,6 @@ class ImportarMundialController extends Controller
             'output_campeones' => $outputCampeones,
         ]);
 
-        // 6) Feedback visual
         $ok = ($exitPartidos === 0 && $exitCampeones === 0);
 
         // Mostramos un mensaje y detalles de la importación (número de partidos procesados, campeones actualizados, etc.)

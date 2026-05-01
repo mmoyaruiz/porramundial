@@ -28,13 +28,7 @@ use App\Models\Partido;
  */
 class ParticipacionController extends Controller
 {
-    /**
-     * Unirse a una porra .
-     *
-     * @param Request $request
-     * @param int $id  Id de la porra
-     * @return \Illuminate\Http\RedirectResponse
-     */
+    
     public function unirse(Request $request, int $id)
     {
         // Autenticación manual por sesión

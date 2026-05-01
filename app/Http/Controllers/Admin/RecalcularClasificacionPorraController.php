@@ -16,7 +16,7 @@ class RecalcularClasificacionPorraController extends Controller
      */
     public function recalcular(int $porra)
     {
-        // 1) Seguridad según TU sistema (sesión propia)
+        // 1) Seguridad (sesión propia)
         $usuario = session('usuario');
         $idUsuario = $usuario['id_usuario'] ?? session('id_usuario');
 
@@ -24,19 +24,19 @@ class RecalcularClasificacionPorraController extends Controller
             return redirect('/login');
         }
 
-        // 2) Cargar porra y comprobar admin (seguridad real)
+        // 2) Cargar porra y comprobar admin 
         $porraModel = Porra::where('id_porra', $porra)->firstOrFail();
 
-        $idAdminPorra = $porraModel->id_usuario_creador
-            ?? $porraModel->id_usuario_admin
-            ?? $porraModel->id_usuario;
+        $idAdminPorra = $porraModel->id_usuario_creador;
 
-        if ((int)$idUsuario !== (int)$idAdminPorra) {
-            abort(403, 'No tienes permisos para recalcular la clasificación de esta porra.');
+        // Si el usuario NO es superadmin, solo puede recalcular si es admin de esta porra
+        if (!$this->isSuperAdmin($usuario)) {
+            if ((int)$idUsuario !== (int)$idAdminPorra) {
+                abort(403, 'No tienes permisos para recalcular la clasificación de esta porra');
+            }
         }
-
+       
         // 3) Ejecutar comando de recálculo 
-
         [$exitRecalc, $outputRecalc] = $this->callRecalcularClasificacion($porraModel->id_porra);
 
         Log::info('BOTÓN 2 -> Recalcular clasificación', [
@@ -62,7 +62,6 @@ class RecalcularClasificacionPorraController extends Controller
      */
     private function callRecalcularClasificacion(int $idPorra): array
     {
-        // intento 3: {idPorra}
         $exit = Artisan::call('porras:recalcular-clasificacion', ['idPorra' => $idPorra]);
         $out  = trim(Artisan::output());
 

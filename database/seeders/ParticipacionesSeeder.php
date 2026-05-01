@@ -3,6 +3,7 @@
 
 
 namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +16,7 @@ class ParticipacionesSeeder extends Seeder
             // Porra 1 (Mundial - Amigos)
             [
                 'id_participacion' => 1,
-                'id_usuario' => 1,
+                'id_usuario' => 2,
                 'id_porra' => 1,
                 'fecha_union' => '2026-02-01 12:05:00',
                 'es_admin' => 1,
@@ -24,7 +25,7 @@ class ParticipacionesSeeder extends Seeder
             ],
             [
                 'id_participacion' => 2,
-                'id_usuario' => 2,
+                'id_usuario' => 3,
                 'id_porra' => 1,
                 'fecha_union' => '2026-02-01 12:10:00',
                 'es_admin' => 0,
@@ -33,7 +34,7 @@ class ParticipacionesSeeder extends Seeder
             ],
             [
                 'id_participacion' => 3,
-                'id_usuario' => 3,
+                'id_usuario' => 4,
                 'id_porra' => 1,
                 'fecha_union' => '2026-02-01 12:20:00',
                 'es_admin' => 0,
@@ -42,7 +43,7 @@ class ParticipacionesSeeder extends Seeder
             ],
             [
                 'id_participacion' => 4,
-                'id_usuario' => 4,
+                'id_usuario' => 5,
                 'id_porra' => 1,
                 'fecha_union' => '2026-02-01 12:25:00',
                 'es_admin' => 0,
@@ -79,10 +80,10 @@ class ParticipacionesSeeder extends Seeder
                 'posicion' => 3,
             ],
 
-            // Porra 3 (LaLiga - Peña del bar)
+            //Porra 3 
             [
                 'id_participacion' => 8,
-                'id_usuario' => 1,
+                'id_usuario' => 2,
                 'id_porra' => 3,
                 'fecha_union' => '2026-02-05 20:05:00',
                 'es_admin' => 0,
@@ -107,7 +108,25 @@ class ParticipacionesSeeder extends Seeder
                 'puntos' => 1,
                 'posicion' => 3,
             ],
+            //Porra 4    
+            [
+                'id_participacion' => 11,
+                'id_usuario' => 5,
+                'id_porra' => 4,
+                'fecha_union' => '2026-02-04 10:05:00',
+                'es_admin' => 1,
+                'puntos' => 15,
+                'posicion' => 1,
+            ],
+            [
+                'id_participacion' => 12,
+                'id_usuario' => 6,
+                'id_porra' => 4,
+                'fecha_union' => '2026-02-04 10:10:00',
+                'es_admin' => 0,
+                'puntos' => 10,
+                'posicion' => 2,
+            ],
         ]);
     }
 }
-

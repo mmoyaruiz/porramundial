@@ -39,7 +39,7 @@ header {
     z-index: 1000;
 }
 
-/*
+
 .logo {
     font-weight: 700;
     font-size: 1.4rem;
@@ -48,19 +48,21 @@ header {
     align-items: center;
     gap: 8px;
 }
-    */
+   
 
 .logo-badge {
-    width: 26px;
-    height: 26px;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: #e5f4ea;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #145229;
-    font-size: 0.8rem;
-    font-weight: 800;
+    font-size: 0.9rem;
+    font-weight: 1200;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 nav a {
@@ -611,4 +613,57 @@ main.auth {
     margin-left: 10px;
     font-weight: 700;
     font-size: 1.2rem;
+}
+
+
+/*BOTONES ADMINISTRADOR PORRA*/
+/* Botones de acciones de administrador */
+.btn-admin {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px 16px;
+
+    background-color: #145229;      /* azul oscuro profesional */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover: efecto visual claro */
+.btn-admin:hover {
+    background-color: #0ea849;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Click */
+.btn-admin:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón deshabilitado */
+.btn-admin:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Variante peligrosa (eliminar porra) */
+.btn-admin.danger {
+    background-color: #c0392b;
+}
+
+.btn-admin.danger:hover {
+    background-color: #992d22;
 }
