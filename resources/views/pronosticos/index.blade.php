@@ -8,6 +8,11 @@
     <section class="hero">
         <h1>Enviar pronósticos</h1>
         <p><strong>Porra:</strong> {{ $porra->nombre }}</p>
+        <ul>
+            <li>Los pronósticos de cada partido se podrán guardar/modificar hasta el momento justo en que empiece el partido.</li>
+            <li>No se pueden poner más de 4 goles locales o visitantes en un partido.</li>
+            <li>Si los goles reales son 4 o más, se considerará acierto si el pronóstico de goles del participante es 4.</li>
+        </ul>
 
         <form action="{{ route('pronosticos.store', $porra->id_porra) }}" method="POST">
             @csrf
