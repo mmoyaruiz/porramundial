@@ -48,7 +48,7 @@ header {
     align-items: center;
     gap: 8px;
 }
-   
+
 
 .logo-badge {
     margin: 10px;
@@ -105,7 +105,7 @@ main {
     /* hero mucho más ancho */
     gap: 24px;
     align-items: start;
-            justify-content: center;
+    justify-content: center;
 
 }
 
@@ -255,7 +255,7 @@ footer a:hover {
    RESPONSIVE
    ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .home-layout {
         grid-template-columns: 1fr;
     }
@@ -453,7 +453,7 @@ table td {
     /* Centrado horizontal */
     vertical-align: middle;
     /* Centrado vertical */
-    padding: 5px 5px;
+    padding: 3px 3px;
     /* Espaciado interno */
     border: 1px solid #ccc;
     /* Línea de separación entre celdas */
@@ -596,18 +596,21 @@ main.auth {
 
 /* =========================
    LOGO EN CABECERA
-   ========================= */ 
+   ========================= */
 
 .logo {
     display: flex;
     align-items: center;
     height: 20px;
-    padding-left: 20px; /* separa el logo del borde */
+    padding-left: 20px;
+    /* separa el logo del borde */
 }
 
 .logo-img {
-    height: 36px;  /* tamaño ideal para un header */
-    width: auto;   /* mantiene proporción */
+    height: 36px;
+    /* tamaño ideal para un header */
+    width: auto;
+    /* mantiene proporción */
     display: block;
 }
 
@@ -626,7 +629,8 @@ main.auth {
     margin: 10px 0;
     padding: 12px 16px;
 
-    background-color: #145229;      /* azul oscuro profesional */
+    background-color: #145229;
+    /* azul oscuro profesional */
     color: #ffffff;
     border: none;
     border-radius: 6px;
@@ -668,4 +672,226 @@ main.auth {
 
 .btn-admin.danger:hover {
     background-color: #992d22;
+}
+
+
+
+
+/*TODO ESTO ES NUEVO PARA EL MOVIL
+
+/* =====================================================
+   MEJORAS RESPONSIVE MÓVIL (NO DESTRUCTIVAS)
+   ===================================================== */
+
+@media (max-width: 1000px) {
+
+    /* -------- LAYOUT GENERAL -------- */
+    main {
+        margin: 20px auto;
+        padding: 0 12px;
+    }
+
+    /* -------- HEADER / NAV -------- */
+    nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        padding: 6px 0;
+    }
+
+    /* -------- HOME -------- */
+    .home-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        max-width: none;
+        min-width: 0;
+    }
+
+    /* -------- BOTONES -------- */
+    .btn,
+    .btn-admin {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    /* -------- DASHBOARD -------- */
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-main {
+        grid-template-columns: 1fr;
+    }
+
+    /* -------- TABLAS -------- */
+    .table,
+    table {
+        width: 100%;
+        font-size: 0.7rem;
+    }
+
+
+
+    .table-responsive {
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+
+    /* -------- PARTIDOS -------- */
+    .partido-flex {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .col-partido {
+        min-width: auto;
+    }
+
+    /* -------- INPUTS PRONÓSTICO -------- */
+    .col-pronostico input {
+        width: 60px;
+        font-size: 1rem;
+    }
+
+    /* -------- FORMULARIOS -------- */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        text-align: center;
+    }
+
+}
+
+
+
+
+/*MOVIL 2*/
+
+/* =====================================================
+   FIX ESPECÍFICO: VISTA PORRA (MÓVIL)
+   No rompe desktop
+   ===================================================== */
+
+@media (max-width: 1000px) {
+
+    /* -------- ESTRUCTURA GENERAL -------- */
+    .home-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Movemos la sidebar arriba en móvil */
+    /*
+    .sidebar {
+        order: -1;
+        margin-bottom: 20px;
+    }
+    */
+
+    /* -------- CLASIFICACIÓN -------- */
+    /*
+    .hero h2 {
+        font-size: 1.2rem;
+        margin-top: 30px;
+    }
+        */
+
+    /* -------- TABLAS: ocultamos cabeceras -------- */
+    /*table thead {
+        display: none;
+    }
+        */
+
+    /*
+    table tbody tr {
+        display: block;
+        margin-bottom: 16px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+        background: #fff;
+    }
+        */
+
+    /*
+    table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 0;
+        border: none;
+        font-size: 0.9rem;
+    }
+        */
+
+    table tbody td::before {
+        font-weight: 600;
+        color: #145229;
+    }
+
+    /* -------- CLASIFICACIÓN LABELS -------- */
+    /*
+    table tbody td:nth-child(1)::before { content: "Posición"; }
+    table tbody td:nth-child(2)::before { content: "Usuario"; }
+    table tbody td:nth-child(3)::before { content: "Puntos"; }
+    */
+
+    /* -------- PARTIDOS LABELS -------- */
+    /*
+    .fila-partido td:nth-child(1)::before { content: "Fase"; }
+    .fila-partido td:nth-child(2)::before { content: "Fecha"; }
+    .fila-partido td:nth-child(3)::before { content: "Partido"; }
+    .fila-partido td:nth-child(4)::before { content: "Mi pronóstico"; }
+    .fila-partido td:nth-child(5)::before { content: "1X2"; }
+    .fila-partido td:nth-child(6)::before { content: "Cierre"; }
+    .fila-partido td:nth-child(7)::before { content: "Marcador"; }
+    .fila-partido td:nth-child(8)::before { content: "Detalle"; }
+    */
+
+    /* -------- PARTIDO FLEX -------- */
+    .partido-flex {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .equipo {
+        justify-content: center;
+    }
+
+    .vs {
+        display: none;
+    }
+
+
+    /* -------- LINKS DETALLE -------- */
+    .fila-partido a {
+        font-weight: 600;
+        color: #1f7a3d;
+    }
+
+
+    .hero {
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 2px 2px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+        border: 1px solid #e5f4ea;
+        width: 100%;
+        max-width: none;
+    }
+
+    thead{
+        font-size: 0.6rem;
+    }
+
+
+
 }

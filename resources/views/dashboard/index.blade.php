@@ -45,7 +45,7 @@
         <div class="card">
             <h2>Mis porras</h2>
 
-            <table class="table">
+            <table class="table-responsive">
                 <thead>
                     <tr>
                         <th>Porra</th>

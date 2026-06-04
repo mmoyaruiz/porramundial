@@ -91,7 +91,7 @@
         {{-- ===================================================== --}}
         <h2>Clasificación actual</h2>
 
-        <table class="table">
+        <table class="table-responsive">
             <thead>
                 <tr>
                     <th>Posición</th>
@@ -147,16 +147,16 @@
 
         @else
 
-        <table class="table">
+        <table class="table-responsive">
             <thead>
                 <tr>
                     <th>Fase</th>
                     <th>Fecha</th>
                     <th>Partido</th>
-                    <th>Mi <br>pronóstico</th>
+                    <th>Mi <br>marcador</th>
                     <th>1X2</th>
                     <th>Horas hasta <br>el cierre</th>
-                    <th>Marcador</th>
+                    <th>Marcador <br>real</th>
                     <th>Detalle de <br>partido</th>
                 </tr>
             </thead>
@@ -174,7 +174,7 @@
                 * Cálculo del signo 1X2 a partir del pronóstico.
                 */
                 if (!$pronostico) {
-                $signo = 'Pendiente';
+                $signo = 'Pte';
                 } elseif ($pronostico->goles_local_pronosticados > $pronostico->goles_visitante_pronosticados) {
                 $signo = '1';
                 } elseif ($pronostico->goles_local_pronosticados < $pronostico->goles_visitante_pronosticados) {
@@ -213,7 +213,10 @@
 
                         {{-- FECHA --}}
                         <td class="col-fecha">
-                            {{ \Carbon\Carbon::parse($partido->fecha_hora)->format('d/m/Y') }}
+                            <!-- {{ \Carbon\Carbon::parse($partido->fecha_hora)->format('d/m/y') }} -->
+                                {{ \Carbon\Carbon::parse($partido->fecha_hora)->format('d/m') }}
+                                <br>
+                            <br>
                             <strong>{{ \Carbon\Carbon::parse($partido->fecha_hora)->format('H:i') }}</strong>
                         </td>
 
@@ -241,7 +244,7 @@
                             <span class="guion">-</span>
                             {{ $pronostico->goles_visitante_pronosticados }}
                             @else
-                            <span>Pendiente</span>
+                            <span>Pte</span>
                             @endif
                         </td>
 

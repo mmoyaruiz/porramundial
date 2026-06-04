@@ -7,7 +7,7 @@
         <h1>Porras en las que participo</h1>
         <p>Listado de porras en las que participas actualmente.</p>
 
-        <table class="table">
+        <table class="table-responsive">
             <thead>
                 <tr>
                     <th>Porra</th>
