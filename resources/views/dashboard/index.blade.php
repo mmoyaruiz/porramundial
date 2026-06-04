@@ -77,7 +77,8 @@
         <aside class="card">
             <h2>Acciones rápidas</h2>
 
-            <a href="{{ route('porras.create') }}">Crear nueva porra</a>
+            <!-- <a href="{{ route('porras.create') }}">Crear nueva porra</a> -->
+             <a href="#">Crear nueva porra (en construcción)</a>
 
             <p class="help-text">
                 <span><a href="{{ route('porras.disponibles') }}">Ver porras disponibles</a></span>
