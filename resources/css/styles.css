@@ -895,6 +895,11 @@ main.auth {
         font-size: 0.7rem;
     }
 
+    .equipo img {
+    width: auto;
+    height: 10px;
+}
+
 
 
 }

@@ -35,8 +35,10 @@
                 @endphp
                 <tr>
                     <td>
-                        {{ \Carbon\Carbon::parse($partido->fecha_hora)->format('d/m/Y H:i') }}
-                    </td>
+                                {{ \Carbon\Carbon::parse($partido->fecha_hora)->format('d/m') }}
+                                <br>
+                                {{ \Carbon\Carbon::parse($partido->fecha_hora)->format('H:i') }}
+                            </td>
 
                     <td>
                         {{ $partido->equipo_local_tla }}
