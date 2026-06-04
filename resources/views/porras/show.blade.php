@@ -195,7 +195,7 @@
                     $estadoCierre = now()->diffForHumans($inicio, [
                     'syntax' => \Carbon\Carbon::DIFF_ABSOLUTE,
                     'short' => true,
-                    'parts' => 2,
+                    'parts' => 1,
                     ]);
                     }
                     @endphp
@@ -213,12 +213,10 @@
 
                         {{-- FECHA --}}
                         <td class="col-fecha">
-                            <!-- {{ \Carbon\Carbon::parse($partido->fecha_hora)->format('d/m/y') }} -->
                                 {{ \Carbon\Carbon::parse($partido->fecha_hora)->format('d/m') }}
                                 <br>
-                            <br>
-                            <strong>{{ \Carbon\Carbon::parse($partido->fecha_hora)->format('H:i') }}</strong>
-                        </td>
+                                <strong>{{ \Carbon\Carbon::parse($partido->fecha_hora)->format('H:i') }}</strong>
+                            </td>
 
                         {{-- PARTIDO --}}
                         <td class="col-partido">

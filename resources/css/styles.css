@@ -345,7 +345,6 @@ footer a:hover {
 }
 
 .col-pronostico input {
-    width: 48px;
     text-align: center;
 }
 
@@ -756,8 +755,8 @@ main.auth {
 
     /* -------- INPUTS PRONÓSTICO -------- */
     .col-pronostico input {
-        width: 60px;
-        font-size: 1rem;
+        width: 30px;
+        font-size: 0.8rem;
     }
 
     /* -------- FORMULARIOS -------- */
@@ -890,6 +889,10 @@ main.auth {
 
     thead{
         font-size: 0.6rem;
+    }
+
+    li {
+        font-size: 0.7rem;
     }
 
 

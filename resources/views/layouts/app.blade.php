@@ -53,3 +53,22 @@
 </body>
 
 </html>
+
+<script>
+document.addEventListener('input', function (e) {
+
+    if (e.target.matches('input[type="number"]')) {
+
+        const valor = parseInt(e.target.value, 10);
+
+        if (valor > 4) {
+            e.target.value = 4;
+        }
+
+        if (valor < 0) {
+            e.target.value = 0;
+        }
+    }
+
+});
+</script>

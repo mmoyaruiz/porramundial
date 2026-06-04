@@ -45,7 +45,8 @@
 
                             {{-- FECHA --}}
                             <td class="col-fecha">
-                                {{ \Carbon\Carbon::parse($partido->fecha_hora)->format('d/m/Y') }}
+                                {{ \Carbon\Carbon::parse($partido->fecha_hora)->format('d/m') }}
+                                <br>
                                 <strong>{{ \Carbon\Carbon::parse($partido->fecha_hora)->format('H:i') }}</strong>
                             </td>
 
@@ -69,7 +70,10 @@
                             {{-- PRONÓSTICO --}}
                             <td class="col-pronostico">
 
+
+
                                 <input type="number"
+                                    inputmode="numeric"
                                     name="pronosticos[{{ $partido->id_partido }}][local]"
                                     min="0" max="4"                                    value="{{ old(
                                     'pronosticos.' . $partido->id_partido . '.local',
@@ -81,6 +85,7 @@
                                 <span class="guion">-</span>
 
                                 <input type="number"
+                                    inputmode="numeric"
                                     name="pronosticos[{{ $partido->id_partido }}][visitante]"
                                     min="0" max="4"
                                     value="{{ old(
