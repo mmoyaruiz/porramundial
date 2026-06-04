@@ -104,6 +104,10 @@
                                 $acierto = false;
 
                                 if ($p && $partido->goles_local !== null) {
+
+                                    // Si los goles reales son 4 o más, se da por correcto si el pronóstico de goles del participante es 4
+                                    if ($partido->goles_local > 4) $partido->goles_local = 4;
+                                    if ($partido->goles_visitante > 4) $partido->goles_visitante = 4;
                                     $acierto =
                                         $p->goles_local_pronosticados == $partido->goles_local &&
                                         $p->goles_visitante_pronosticados == $partido->goles_visitante;

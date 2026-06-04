@@ -66,8 +66,7 @@
 
                                 <input type="number"
                                     name="pronosticos[{{ $partido->id_partido }}][local]"
-                                    min="0" max="20"
-                                    value="{{ old(
+                                    min="0" max="4"                                    value="{{ old(
                                     'pronosticos.' . $partido->id_partido . '.local',
                                     isset($pronosticos[$partido->id_partido])
                                     ? $pronosticos[$partido->id_partido]->goles_local_pronosticados
@@ -78,7 +77,7 @@
 
                                 <input type="number"
                                     name="pronosticos[{{ $partido->id_partido }}][visitante]"
-                                    min="0" max="20"
+                                    min="0" max="4"
                                     value="{{ old(
                                     'pronosticos.' . $partido->id_partido . '.visitante',
                                     isset($pronosticos[$partido->id_partido])
@@ -94,6 +93,8 @@
                 </tbody>
 
             </table>
+            <br>
+            
 
             <button type="submit" class="btn btn-primary">Guardar pronósticos</button>
         </form>

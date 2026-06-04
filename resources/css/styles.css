@@ -105,6 +105,8 @@ main {
     /* hero mucho más ancho */
     gap: 24px;
     align-items: start;
+            justify-content: center;
+
 }
 
 
@@ -279,7 +281,7 @@ footer a:hover {
 
 /*formato tabla pronosticos*/
 .table {
-    width: 100%;
+    width: 50%;
     table-layout: auto;
 }
 
@@ -451,7 +453,7 @@ table td {
     /* Centrado horizontal */
     vertical-align: middle;
     /* Centrado vertical */
-    padding: 10px 12px;
+    padding: 5px 5px;
     /* Espaciado interno */
     border: 1px solid #ccc;
     /* Línea de separación entre celdas */

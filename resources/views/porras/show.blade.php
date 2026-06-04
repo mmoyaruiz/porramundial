@@ -156,6 +156,7 @@
                     <th>Mi <br>pronóstico</th>
                     <th>1X2</th>
                     <th>Horas hasta <br>el cierre</th>
+                    <th>Marcador</th>
                     <th>Detalle de <br>partido</th>
                 </tr>
             </thead>
@@ -252,6 +253,14 @@
                         {{-- HORAS HASTA CIERRE --}}
                         <td class="col-fecha">
                             {{ $estadoCierre }}
+                        </td>
+                        {{-- MARCADOR --}}
+                        <td class="col-fecha">
+                            @if($partido->estado !== 'programado')
+                            {{ $partido->goles_local }} - {{ $partido->goles_visitante }}
+                            @else
+                            ---
+                            @endif
                         </td>
 
                         {{-- ENLACE A DETALLE --}}

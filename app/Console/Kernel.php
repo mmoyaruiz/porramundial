@@ -5,23 +5,43 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
+
+
+
+
+
 class Kernel extends ConsoleKernel
 {
-    /**
-     * Definición de tareas programadas.
-     *
-     * No se utilizan tareas automáticas en este proyecto.
-     */
+
+
+
+   
     protected function schedule(Schedule $schedule)
     {
-        // Sin tareas programadas
+        // 1️⃣ Actualización de partidos cada minuto
+        //$schedule->command('porra:actualizar-partidos')
+        //    ->everyMinute()
+        //    ->withoutOverlapping()
+        //    ->onOneServer();
+
+        // 2️⃣ Recalcular clasificación cada minuto
+        //$schedule->command('porras:recalcular-clasificacion')
+        //    ->everyMinute()
+        //    ->withoutOverlapping()
+        //    ->onOneServer();
+
+        //$schedule->command('porras:recalcular-clasificacion')
+        //    ->everyMinute();
     }
+       
 
     /**
      * Registro automático de comandos de consola.
      */
     protected function commands()
     {
+
         $this->load(__DIR__ . '/Commands');
+        require base_path('routes/console.php');
     }
 }

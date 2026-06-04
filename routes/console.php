@@ -1,8 +1,37 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schedule;
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+/*
+|--------------------------------------------------------------------------
+| Tareas programadas (Scheduler)
+|--------------------------------------------------------------------------
+| Aquí declaramos los comandos que queremos ejecutar automáticamente.
+| Después, "php artisan schedule:run" evaluará cada minuto qué toca ejecutar.
+*/
+
+
+
+// 1️⃣ Importar / actualizar partidos del Mundial
+Schedule::command('pm:importar-mundial')
+    ->everyMinute()
+    ->withoutOverlapping()
+    ->onOneServer();
+
+
+Schedule::command('pm:importar-campeones')
+    ->everyMinute()
+    ->withoutOverlapping()
+    ->onOneServer();
+
+
+//Schedule::command('porra:actualizar-partidos')->everyMinute();
+Schedule::command('porras:recalcular-clasificacion')
+    ->everyMinute()
+    ->withoutOverlapping()
+    ->onOneServer();
+
+
+
+
+

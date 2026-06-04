@@ -52,11 +52,13 @@
 
                 @foreach($pronosticos as $p)
                 @php
-                    if ($p->goles_local_pronosticados > $p->goles_visitante_pronosticados) $signo = '1';
-                    elseif ($p->goles_local_pronosticados < $p->goles_visitante_pronosticados) $signo = '2';
+                if ($p->goles_local_pronosticados > $p->goles_visitante_pronosticados) $signo = '1';
+                elseif ($p->goles_local_pronosticados < $p->goles_visitante_pronosticados) $signo = '2';
                     else $signo = 'X';
                     $clase = '';
                     if ($haComenzado) {
+                        if($partido->goles_local > 4) $partido->goles_local = 4;
+                        if($partido->goles_visitante > 4) $partido->goles_visitante = 4;
                     if (
                     $p->goles_local_pronosticados === $partido->goles_local &&
                     $p->goles_visitante_pronosticados === $partido->goles_visitante
@@ -70,7 +72,7 @@
                         $clase = 'acierto-signo';
                         }
                         }
-                @endphp
+                        @endphp
 
                         <tr class="{{ $clase }}">
                             <td>
@@ -81,7 +83,7 @@
                             </td>
                             <td>{{ $signo }}</td>
                         </tr>
-                @endforeach
+                        @endforeach
             </tbody>
         </table>
         @if (!$haComenzado)

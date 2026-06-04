@@ -113,6 +113,14 @@ class ClasificacionPorraService
         int $prL,
         int $prV
     ): int {
+        //Si los goles reales son 4 o más, se da por correcto si el pronótico de goles del participante es 4
+        if ($realL >= 4 && $prL === 4) {
+            $realL = 4;
+        }
+        if ($realV >= 4 && $prV === 4) {
+            $realV = 4;
+        }
+        
         if ($realL === $prL && $realV === $prV) {
             return $puntosMarcador;
         }
