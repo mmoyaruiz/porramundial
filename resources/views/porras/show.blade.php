@@ -195,7 +195,7 @@
                     $estadoCierre = now()->diffForHumans($inicio, [
                     'syntax' => \Carbon\Carbon::DIFF_ABSOLUTE,
                     'short' => true,
-                    'parts' => 1,
+                    'parts' => 2,
                     ]);
                     }
                     @endphp
