@@ -220,7 +220,7 @@ class PorraController extends Controller
 
         //Próximos partidos de la competición
         $proximosPartidos = Partido::where('id_competicion', $porra->id_competicion)
-            ->where('fecha_hora', '>', now())
+            ->where('fecha_hora', '>=', Carbon::now()->subHours(24))
             ->orderBy('fecha_hora')
             ->limit(20)
             ->get();
