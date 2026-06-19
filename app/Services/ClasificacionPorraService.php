@@ -50,7 +50,7 @@ class ClasificacionPorraService
 
             // 2) Puntos por partidos finalizados (solo si hay marcador real)
             $partidosFinalizados = Partido::where('id_competicion', $porra->id_competicion)
-                ->where('estado', ['finalizado', 'en juego'])
+                ->where('estado', ['finalizado', 'en_juego'])
                 ->whereNotNull('goles_local')
                 ->whereNotNull('goles_visitante')
                 ->get();
