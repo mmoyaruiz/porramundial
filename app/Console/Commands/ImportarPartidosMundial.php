@@ -50,7 +50,7 @@ class ImportarPartidosMundial extends Command
     {
         set_time_limit(0); // Evitar timeout en importaciones largas
         ignore_user_abort(true); // Continuar incluso si se cierra la conexión
-        
+
 
         // 1) Resolver id_competicion interno
         $idCompeticion = $this->resolveIdCompeticion();
@@ -120,9 +120,18 @@ class ImportarPartidosMundial extends Command
             // 7) Grupo: "GROUP_A" -> "A" (si no hay, queda null)
             $grupo = $group ? str_replace('GROUP_', '', $group) : null;
 
-            // 8) Marcador real (se usa regularTime como resultado válido)
-            $golesLocal = $m['score']['regularTime']['home'] ?? null;
-            $golesAway  = $m['score']['regularTime']['away'] ?? null;
+
+
+            // 8) Marcador real (se usa regularTime en caso de que haya penalties como resultado válido)
+            if (isset($m['score']['regularTime'])) {
+                $golesLocal = $m['score']['regularTime']['home'] ?? null;
+                $golesAway  = $m['score']['regularTime']['away'] ?? null;
+            } else {
+                $golesLocal = $m['score']['fullTime']['home'] ?? null;
+                $golesAway  = $m['score']['fullTime']['away'] ?? null;
+            }
+
+      
 
             // 9) Datos para insertar/actualizar
             $data = [
@@ -194,8 +203,8 @@ class ImportarPartidosMundial extends Command
     {
         return match ($status) {
             'FINISHED'         => 'finalizado',
-            'IN_PLAY', 'PAUSED'=> 'en_juego',
-            'SCHEDULED', 'TIMED'=> 'programado',
+            'IN_PLAY', 'PAUSED' => 'en_juego',
+            'SCHEDULED', 'TIMED' => 'programado',
             default            => 'programado',
         };
     }
