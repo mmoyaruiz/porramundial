@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Log;
  * Objetivo:
  * - Importar y actualizar partidos de una competición desde la API externa.
  * - Guardar en BD: fecha/hora (convertida a España), estado del partido, fase/grupo,
- *   equipos (nombre/shortname/TLA/escudo) y marcador final (fullTime).
+ *   equipos (nombre/shortname/TLA/escudo) y marcador a los 90 minutos (regularTime).
  *
  * Este comando es la base para que la aplicación pueda:
  * - Mostrar partidos y estados actualizados.
@@ -120,9 +120,9 @@ class ImportarPartidosMundial extends Command
             // 7) Grupo: "GROUP_A" -> "A" (si no hay, queda null)
             $grupo = $group ? str_replace('GROUP_', '', $group) : null;
 
-            // 8) Marcador real (se usa fullTime como resultado válido)
-            $golesLocal = $m['score']['fullTime']['home'] ?? null;
-            $golesAway  = $m['score']['fullTime']['away'] ?? null;
+            // 8) Marcador real (se usa regularTime como resultado válido)
+            $golesLocal = $m['score']['regularTime']['home'] ?? null;
+            $golesAway  = $m['score']['regularTime']['away'] ?? null;
 
             // 9) Datos para insertar/actualizar
             $data = [
