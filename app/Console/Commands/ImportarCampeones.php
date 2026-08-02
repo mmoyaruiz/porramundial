@@ -208,11 +208,14 @@ class ImportarCampeones extends Command
             $awayTla = $finalMatch['awayTeam']['tla'] ?? null;
 
             $campeonTla = null;
+            $campeonShort = null;
 
             if ($winner === 'HOME_TEAM') {
                 $campeonTla = $homeTla;
+                $campeonShort = $finalMatch['homeTeam']['shortName'] ?? null;
             } elseif ($winner === 'AWAY_TEAM') {
                 $campeonTla = $awayTla;
+                $campeonShort = $finalMatch['awayTeam']['shortName'] ?? null;
             } else {
                 // Fallback si no viene winner: deducimos por marcador fullTime
                 $hl = $finalMatch['score']['fullTime']['home'] ?? null;
@@ -228,6 +231,7 @@ class ImportarCampeones extends Command
 
             if ($campeonTla) {
                 $campeonTla = strtoupper($campeonTla);
+                $campeonShort = strtoupper($campeonShort);
 
                 dump("FINAL detectada. Campeón torneo: {$campeonTla}");
 
@@ -254,6 +258,7 @@ class ImportarCampeones extends Command
                             'tipo' => 'competicion',
                             'grupo' => '',
                             'equipo_tla' => $campeonTla,
+                            'equipo_shortname' => $campeonShort,
                             'fuente' => 'football-data.org',
                         ]);
 
