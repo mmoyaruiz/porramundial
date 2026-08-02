@@ -194,13 +194,15 @@ class ImportarCampeones extends Command
 
         $finalMatch = null;
         foreach ($matches as $m) {
-            if (($m['stage'] ?? null) === 'FINAL' && ($m['status'] ?? null) === 'finalizado') {
+            if (($m['stage'] ?? null) === 'FINAL' && ($m['status'] ?? null) === 'FINISHED') {
                 $finalMatch = $m;
                 break;
             }
         }
 
         if ($finalMatch) {
+            dd($finalMatch);
+
             $winner  = $finalMatch['score']['winner'] ?? null;
             $homeTla = $finalMatch['homeTeam']['tla'] ?? null;
             $awayTla = $finalMatch['awayTeam']['tla'] ?? null;
