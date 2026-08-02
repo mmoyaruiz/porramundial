@@ -224,8 +224,14 @@ class ImportarCampeones extends Command
                 }
             }
 
+            dd($campeonTla);
+
             if ($campeonTla) {
                 $campeonTla = strtoupper($campeonTla);
+
+                dd("FINAL detectada. Campeón torneo: {$campeonTla}");
+
+                dd($dryRun);
 
                 if (!$dryRun) {
                     $row = CampeonReal::where('id_competicion', $idCompeticion)
