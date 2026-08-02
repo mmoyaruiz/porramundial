@@ -201,7 +201,7 @@ class ImportarCampeones extends Command
         }
 
         if ($finalMatch) {
-            dd($finalMatch);
+            dump($finalMatch);
 
             $winner  = $finalMatch['score']['winner'] ?? null;
             $homeTla = $finalMatch['homeTeam']['tla'] ?? null;
@@ -224,14 +224,14 @@ class ImportarCampeones extends Command
                 }
             }
 
-            dd($campeonTla);
+            dump($campeonTla);
 
             if ($campeonTla) {
                 $campeonTla = strtoupper($campeonTla);
 
-                dd("FINAL detectada. Campeón torneo: {$campeonTla}");
+                dump("FINAL detectada. Campeón torneo: {$campeonTla}");
 
-                dd($dryRun);
+                dump($dryRun);
 
                 if (!$dryRun) {
                     $row = CampeonReal::where('id_competicion', $idCompeticion)
