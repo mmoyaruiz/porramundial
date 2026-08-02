@@ -194,7 +194,7 @@ class ImportarCampeones extends Command
 
         $finalMatch = null;
         foreach ($matches as $m) {
-            if (($m['stage'] ?? null) === 'FINAL' && ($m['status'] ?? null) === 'FINISHED') {
+            if (($m['stage'] ?? null) === 'FINAL' && ($m['status'] ?? null) === 'finalizado') {
                 $finalMatch = $m;
                 break;
             }
