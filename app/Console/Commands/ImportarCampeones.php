@@ -239,7 +239,7 @@ class ImportarCampeones extends Command
                         ->where('grupo', '')
                         ->first();
                     
-                        dd($row);
+                        dump($row);
 
                     if ($row) {
                         if ($row->equipo_tla !== $campeonTla) {
