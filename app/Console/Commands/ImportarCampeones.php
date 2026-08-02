@@ -257,14 +257,14 @@ class ImportarCampeones extends Command
                             'fuente' => 'football-data.org',
                         ]);
 
-                        dump($prueba);
+                        dd($prueba);
                        
 
 
 
                         } catch (\Throwable $e) {
 
-                        dump($e->getMessage());
+                        dd($e->getMessage());
                            
                         }
                         
