@@ -248,13 +248,26 @@ class ImportarCampeones extends Command
                             $actualizados++;
                         }
                     } else {
-                        CampeonReal::create([
+                        try{
+                            $prueba=CampeonReal::create([
                             'id_competicion' => $idCompeticion,
                             'tipo' => 'competicion',
                             'grupo' => '',
                             'equipo_tla' => $campeonTla,
                             'fuente' => 'football-data.org',
                         ]);
+
+                        dump($prueba);
+                       
+
+
+
+                        } catch (\Throwable $e) {
+
+                        dump($e->getMessage());
+                           
+                        }
+                        
                         $creados++;
                     }
                 } else {
